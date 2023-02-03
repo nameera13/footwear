@@ -1,6 +1,10 @@
 <?php 
     use App\Models\ProductsFilter; 
+    use App\Models\Section;
     $productFilters = ProductsFilter::productFilters();
+    $sections = Section::sections();
+    // echo"<pre>"; print_r($sections); die;
+    $totalCartItems = totalCartItems();
 
 ?>
 <div class="col-12 col-sm-12 col-md-3 col-lg-3 sidebar filterbar">
@@ -14,27 +18,17 @@
             <div class="widget-title"><h2>Categories</h2></div>
             <div class="widget-content">
                 <ul class="sidebar_categories">
-                    <li class="level1 sub-level"><a href="#;" class="site-nav">Clothing</a>
+                @foreach($sections as $section)
+                @if(count($section['categories'])>0)
+                    <li class="level1 sub-level"><a href="#;" class="site-nav">{{$section['section_name']}}</a>
                         <ul class="sublinks">
-                            <li class="level2"><a href="#;" class="site-nav">Men</a></li>
-                            <li class="level2"><a href="#;" class="site-nav">Women</a></li>
-                            <li class="level2"><a href="#;" class="site-nav">Child</a></li>
-                            <li class="level2"><a href="#;" class="site-nav">View All Clothing</a></li>
+                        @foreach($section['categories'] as $category) 
+                            <li class="level2 "><a href="{{url($category['url'])}}" class="site-nav">{{$category['category_name']}}</a></li>    
+                        @endforeach
                         </ul>
                     </li>
-                    <li class="level1 sub-level"><a href="#;" class="site-nav">Jewellery</a>
-                        <ul class="sublinks">
-                            <li class="level2"><a href="#;" class="site-nav">Ring</a></li>
-                            <li class="level2"><a href="#;" class="site-nav">Neckalses</a></li>
-                            <li class="level2"><a href="#;" class="site-nav">Eaarings</a></li>
-                            <li class="level2"><a href="#;" class="site-nav">View All Jewellery</a></li>
-                        </ul>
-                    </li>
-                    <li class="lvl-1"><a href="#;" class="site-nav">Shoes</a></li>
-                    <li class="lvl-1"><a href="#;" class="site-nav">Accessories</a></li>
-                    <li class="lvl-1"><a href="#;" class="site-nav">Collections</a></li>
-                    <li class="lvl-1"><a href="#;" class="site-nav">Sale</a></li>
-                    <li class="lvl-1"><a href="#;" class="site-nav">Page</a></li>
+                @endif
+                @endforeach                     
                 </ul>
             </div>
         </div>
