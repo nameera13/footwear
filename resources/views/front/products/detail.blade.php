@@ -187,7 +187,7 @@
 
                                     <div class="product-action clearfix">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="product-form__item--submit">
                                                     <button type="submit" name="add" class="btn product-form__cart-submit">
                                                         <span>Add to cart</span>
@@ -195,11 +195,11 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-6">
+                                            <!-- <div class="col-md-6">
                                                 <div class="shopify-payment-button" data-shopify="payment-button">
                                                     <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded">Buy now</button>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             
                                         </div>                              
                                         
